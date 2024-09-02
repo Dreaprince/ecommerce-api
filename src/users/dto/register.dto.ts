@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString, IsEmail, IsNotEmpty } from 'class-validator';
+import { IsString, IsEmail, IsNotEmpty, IsOptional } from 'class-validator';
 
 export class RegisterDto {
   @ApiProperty({
@@ -26,4 +26,13 @@ export class RegisterDto {
   @IsNotEmpty({ message: 'Password is required.' })
   @IsString({ message: 'Password must be a string.' })
   password: string;
+
+  @ApiProperty({
+    description: 'The role of the user. If not provided, the user will default to the "user" role.',
+    example: 'admin',
+    required: false,
+  })
+  @IsOptional()
+  @IsString({ message: 'Role must be a string.' })
+  role?: string;
 }
