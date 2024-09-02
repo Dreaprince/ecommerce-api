@@ -30,14 +30,14 @@ export class CreateProductDto {
   @IsNumber()
   readonly quantity: number;
 
-  @ApiPropertyOptional({
-    description: 'Whether the product is approved or not',
-    example: false,
-    default: false,
-  })
-  @IsOptional()
-  @IsBoolean()
-  readonly isApproved?: boolean; 
+//   @ApiPropertyOptional({
+//     description: 'Whether the product is approved or not',
+//     example: false,
+//     default: false,
+//   })
+//   @IsOptional()
+//   @IsBoolean()
+//   readonly isApproved?: boolean; 
 }
 
 export class UpdateProductDto {

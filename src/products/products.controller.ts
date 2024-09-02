@@ -6,7 +6,7 @@ import { CreateProductDto, UpdateProductDto } from './dto/product.dto';
 import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth, ApiParam, ApiBody } from '@nestjs/swagger';
 
 @ApiTags('products')
-@ApiBearerAuth() 
+@ApiBearerAuth('access-token')
 @Controller('products')
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
