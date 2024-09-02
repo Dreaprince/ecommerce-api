@@ -18,7 +18,7 @@ export class ProductController {
   @ApiResponse({ status: 201, description: 'Product successfully created', type: Product })
   @ApiResponse({ status: 400, description: 'Invalid input' })
   async createProduct(@Body() createProductDto: CreateProductDto, @Req() req): Promise<Product> {
-    const userId = req.user.id;
+    const userId = req.decoded.id;
     return this.productService.createProduct(createProductDto, userId);
   }
 
@@ -31,7 +31,7 @@ export class ProductController {
   @ApiResponse({ status: 400, description: 'Invalid input' })
   @ApiResponse({ status: 404, description: 'Product not found' })
   async updateProduct(@Param('id') id: number, @Body() updateProductDto: UpdateProductDto, @Req() req): Promise<Product> {
-    const userId = req.user.id;
+    const userId = req.decoded.id;
     return this.productService.updateProduct(id, updateProductDto, userId);
   }
 
@@ -42,7 +42,7 @@ export class ProductController {
   @ApiResponse({ status: 204, description: 'Product successfully deleted' })
   @ApiResponse({ status: 404, description: 'Product not found' })
   async deleteProduct(@Param('id') id: number, @Req() req): Promise<void> {
-    const userId = req.user.id;
+    const userId = req.decoded.id;
     return this.productService.deleteProduct(id, userId);
   }
 
@@ -59,7 +59,7 @@ export class ProductController {
   @ApiResponse({ status: 200, description: 'List of products belonging to the user', type: [Product] })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   async getUserProducts(@Req() req): Promise<Product[]> {
-    const userId = req.user.id;
+    const userId = req.decoded.id;
     return this.productService.getUserProducts(userId);
   }
 
