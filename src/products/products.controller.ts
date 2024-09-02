@@ -1,4 +1,4 @@
-import { Controller, Post, Get, Delete, Body, Param, Put, UseGuards, Req } from '@nestjs/common';
+import { Controller, Post, Get, Delete, Body, Param, Put, UseGuards, Req, Logger, UnauthorizedException } from '@nestjs/common';
 import { ProductService } from './products.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { Product } from './entities/product.entity';
@@ -69,7 +69,13 @@ export class ProductController {
   @ApiParam({ name: 'id', description: 'ID of the product to approve', type: Number })
   @ApiResponse({ status: 200, description: 'Product successfully approved', type: Product })
   @ApiResponse({ status: 404, description: 'Product not found' })
-  async approveProduct(@Param('id') id: number): Promise<Product> {
+  async approveProduct(@Param('id') id: number, @Req() req: any): Promise<Product> {
+    const userRole = req?.decoded?.role;
+
+    if (userRole !== 'admin') {
+      Logger.warn(`Unauthorized attempt to approve product with ID ${id} by user with role ${userRole}`);
+      throw new UnauthorizedException('Only admins can approve Product.');
+    }
     return this.productService.approveProduct(id);
   }
 
@@ -79,7 +85,13 @@ export class ProductController {
   @ApiParam({ name: 'id', description: 'ID of the product to disapprove', type: Number })
   @ApiResponse({ status: 200, description: 'Product successfully disapproved', type: Product })
   @ApiResponse({ status: 404, description: 'Product not found' })
-  async disapproveProduct(@Param('id') id: number): Promise<Product> {
+  async disapproveProduct(@Param('id') id: number, @Req() req: any): Promise<Product> {
+    const userRole = req?.decoded?.role;
+
+    if (userRole !== 'admin') {
+      Logger.warn(`Unauthorized attempt to approve product with ID ${id} by user with role ${userRole}`);
+      throw new UnauthorizedException('Only admins can approve Product.');
+    }
     return this.productService.disapproveProduct(id);
   }
 }
