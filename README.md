@@ -19,48 +19,65 @@
     <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
   <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
 </p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository for building a scalable and efficient e-commerce API.
 
-## Project setup
+## Project Setup
 
-```bash
-$ npm install
-```
+1. **Install Dependencies**
 
-## Compile and run the project
+    ```bash
+    $ npm install
+    ```
 
-```bash
-# development
-$ npm run start
+2. **Create a `.env` File**
 
-# watch mode
-$ npm run start:dev
+    Create a file named `.env` in the root of your project with the following content:
 
-# production mode
-$ npm run start:prod
-```
+    ```env
+    JWT_SECRET=wb5B07U8bIKtfg4PWBcNUoxnbGFk92QY
+    DB_HOST=localhost
+    DB_PORT=5432
+    DB_USER=postgres
+    DB_PASSWORD=P@ssw0rd
+    DB_NAME=ecommerce
+    ```
 
-## Run tests
+3. **Compile and Run the Project**
 
-```bash
-# unit tests
-$ npm run test
+    ```bash
+    # Development mode
+    $ npm run start
 
-# e2e tests
-$ npm run test:e2e
+    # Watch mode (auto-reload)
+    $ npm run start:dev
 
-# test coverage
-$ npm run test:cov
-```
+    # Production mode
+    $ npm run start:prod
+    ```
+
+4. **Run Tests**
+
+    ```bash
+    # Unit tests
+    $ npm run test
+
+    # End-to-end tests
+    $ npm run test:e2e
+
+    # Test coverage
+    $ npm run test:cov
+    ```
+
+## API Documentation
+
+Swagger documentation is available at the following endpoint:
+
+- **Swagger UI**: [http://localhost:3000/api/v1/api-docs](http://localhost:3000/api/v1/api-docs)
 
 ## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
 
 - Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
 - For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
@@ -72,13 +89,13 @@ Check out a few resources that may come in handy when working with NestJS:
 
 ## Support
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Nest is an MIT-licensed open-source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-## Stay in touch
+## Stay in Touch
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- **Author** - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
+- **Website** - [https://nestjs.com](https://nestjs.com/)
+- **Twitter** - [@nestframework](https://twitter.com/nestframework)
 
 ## License
 
